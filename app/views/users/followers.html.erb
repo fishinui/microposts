@@ -13,18 +13,21 @@
   </aside>
   <div class="col-md-8">
     
-<%= render 'follow_form' if logged_in? %>
+    <% if @followers.any? %>
 
-    
-<% if @user.microposts.any? %>
-
-      <h3>Microposts (<%= @user.microposts.count %>)</h3>
+      <h3>Followers</h3>
+      <% @followers.each do |f| %>
       <ol class="microposts">
-      <%= render @microposts %>
+ 
+      <li>
+      <%= f.name %><br>
+      <%= f.email %><br>
+      </li>
+
       </ol>
-
+    　<% end %>
+    <% end %>
     
-<% end %>
-
   </div>
-</div>
+
+
