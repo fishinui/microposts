@@ -4,27 +4,20 @@
       <h1>
         
 <%= gravatar_for @user %>
-
-        
 <%= @user.name %>
 
       </h1>
     </section>
   </aside>
   <div class="col-md-8">
-    
     <% if @followings.any? %>
      <h3>Followings</h3>
      <ol class="microposts">
-      
       <% @followings.each do |f| %>
-      
-      <li>
-      <%= f.name %><br>
-      <%= f.email %><br>
-      </li>
-
-     <% end %>
+      <li><%= link_to gravatar_for(f), f  %></li>
+      <li><%= f.name %></li>
+      <li><%= f.email %></li>
+      <% end %>
      </ol>
     <% end %>
     
